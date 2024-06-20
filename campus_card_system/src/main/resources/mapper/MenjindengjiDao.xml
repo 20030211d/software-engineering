@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MenjindengjiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.MenjindengjiEntity" id="menjindengjiMap">
+        <result property="xueshengxuehao" column="xueshengxuehao"/>
+        <result property="xueshengxingming" column="xueshengxingming"/>
+        <result property="xiaomen" column="xiaomen"/>
+        <result property="leixing" column="leixing"/>
+        <result property="dengjishijian" column="dengjishijian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.MenjindengjiVO" >
+		SELECT * FROM menjindengji  menjindengji         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.MenjindengjiVO" >
+		SELECT  menjindengji.* FROM menjindengji  menjindengji
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.MenjindengjiView" >
+
+		SELECT  menjindengji.* FROM menjindengji  menjindengji 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.MenjindengjiView" >
+		SELECT * FROM menjindengji  menjindengji <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+	
+</mapper>
